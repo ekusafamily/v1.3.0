@@ -30,9 +30,14 @@ const leaders = [
     image: "https://i.ibb.co/G4wDCfDz/Samuel-Wairegi.jpg"
   },
   {
-    name: "Vacant",
-    role: "Treasurer",
-    image: "/placeholder.svg"
+    name: "Peter Otieno",
+    role: "National Strategist",
+    image: "https://i.ibb.co/Y7k99JQ8/Whats-App-Image-2026-01-07-at-19-49-22.jpg"
+  },
+   {
+    name: "EMMANUEL WAMUKOYA ",
+    role: "Admnistrator",
+    image: "https://i.ibb.co/Mx0hWkt8/1767804055525.jpg"
   },
 ];
 
@@ -124,5 +129,6 @@ const Leadership = () => {
 };
 
 export default Leadership;
+
 
 
