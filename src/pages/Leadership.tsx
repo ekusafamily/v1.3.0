@@ -17,7 +17,7 @@ const leaders = [
   {
     name: "Saumu Bakari",
     role: "Vice President",
-    image: "https://ibb.co/prdkQXXS"
+    image: "https://i.ibb.co/cXQswTTj/Whats-App-Image-2026-01-07-at-19-41-46.jpg"
   },
   {
     name: "Vincent Adede",
@@ -124,4 +124,5 @@ const Leadership = () => {
 };
 
 export default Leadership;
+
 
