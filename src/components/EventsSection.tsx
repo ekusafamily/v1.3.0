@@ -17,7 +17,7 @@ const events = [
   {
     id: 2,
     title: "National Community Service Day",
-    date: "May 5, 2025",
+    date: "May 5, 2026",
     time: "7:00 AM - 12:00 PM",
     location: "All 47 Counties",
     description: "Join thousands of Kabila La Vijana members across Kenya for our quarterly community service initiative. Activities include environmental cleanup, tree planting, school renovations, and health outreach programs. Each county chapter will organize local activities.",
@@ -27,7 +27,7 @@ const events = [
   {
     id: 3,
     title: "Youth Economic Empowerment Summit",
-    date: "May 15, 2025",
+    date: "May 15, 2026",
     time: "8:00 AM - 5:00 PM",
     location: "Kenyatta University, Nairobi",
     description: "Connect with entrepreneurs, investors, and mentors at our annual economic summit. Learn about business opportunities, access to capital, skills training programs, and success stories from young Kenyan entrepreneurs who have built thriving businesses.",
@@ -37,7 +37,7 @@ const events = [
   {
     id: 4,
     title: "Cross-County Cultural Exchange",
-    date: "May 22-24, 2025",
+    date: "May 22-24, 2026",
     time: "Full 3-Day Program",
     location: "Mombasa County",
     description: "A three-day immersive experience bringing together youth from different counties to celebrate Kenya's diverse cultures, traditions, and heritage. Features cultural performances, dialogue sessions, and team-building activities designed to foster national unity.",
@@ -131,3 +131,4 @@ const EventsSection = () => {
 };
 
 export default EventsSection;
+
