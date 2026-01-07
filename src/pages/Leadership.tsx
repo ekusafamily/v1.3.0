@@ -15,9 +15,9 @@ const leaders = [
     image: "https://i.ibb.co/9HPxR5fM/Fred-Osiro.jpg"
   },
   {
-    name: "Vacant",
+    name: "Saumu Bakari",
     role: "Vice President",
-    image: "/placeholder.svg"
+    image: "https://ibb.co/prdkQXXS"
   },
   {
     name: "Vincent Adede",
@@ -124,3 +124,4 @@ const Leadership = () => {
 };
 
 export default Leadership;
+
