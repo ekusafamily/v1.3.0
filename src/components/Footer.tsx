@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, MessageCircle  } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -23,7 +23,7 @@ const Footer = () => {
                 <Facebook className="h-5 w-5" />
               </a>
               <a href="https://chat.whatsapp.com/Jmss9EzpzJUDI8Hxvl4VnX" className="p-2 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors">
-                <Whatsapp className="h-5 w-5" />
+                <MessageCircle className="h-5 w-5" />
               </a>
               <a href="https://instagram.com" className="p-2 rounded-full bg-muted hover:bg-primary hover:text-primary-foreground transition-colors">
                 <Instagram className="h-5 w-5" />
@@ -103,3 +103,4 @@ const Footer = () => {
 
 
 export default Footer;
+
