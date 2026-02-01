@@ -12,6 +12,7 @@ import Community from "./pages/Community";
 import Membership from "./pages/Membership";
 import Leadership from "./pages/Leadership";
 import Programs from "./pages/Programs";
+import PastEvents from "./pages/PastEvents";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/membership" element={<Membership />} />
             <Route path="/leadership" element={<Leadership />} />
             <Route path="/programs" element={<Programs />} />
+            <Route path="/past-events" element={<PastEvents />} />
             <Route path="/contact" element={<Contact />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

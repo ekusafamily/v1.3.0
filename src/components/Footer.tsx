@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, MessageCircle  } from "lucide-react";
+import { Facebook, Twitter, Instagram, Youtube, Mail, Phone, MapPin, MessageCircle } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -38,7 +38,7 @@ const Footer = () => {
           <div>
             <h4 className="font-heading font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2">
-              {["About Us", "Membership", "Programs", "Leadership", "Blog"].map((link) => (
+              {["About Us", "Community", "Membership", "Programs", "Leadership", "Blog"].map((link) => (
                 <li key={link}>
                   <Link
                     to={`/${link.toLowerCase().replace(" ", "-")}`}

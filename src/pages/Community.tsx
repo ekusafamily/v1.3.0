@@ -5,17 +5,42 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Users, MapPin, Calendar, MessageCircle } from "lucide-react";
 
-const communities = [
-  { county: "Nairobi", members: "500+", leader: "John Kamau" },
-  { county: "Mombasa", members: "200+", leader: "Fatuma Hassan" },
-  { county: "Kisumu", members: "200+", leader: "Ochieng' Otieno" },
-  { county: "Nakuru", members: "200+", leader: "Grace Wanjiku" },
-  { county: "Eldoret", members: "100+", leader: "Kiprop Kibet" },
-  { county: "Meru", members: "150+", leader: "Peter Muthomi" },
-  { county: "Embu", members: "500+", leader: "---name----" },
-];
+
+import { useState, useEffect } from "react";
+
+interface CommunityData {
+  id: number;
+  county: string;
+  members_count: string;
+  leader_name: string;
+  whatsapp_link?: string;
+}
 
 const Community = () => {
+  const [communities, setCommunities] = useState<CommunityData[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('/api/communities')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch');
+        return res.json();
+      })
+      .then(data => {
+        if (Array.isArray(data)) {
+          setCommunities(data);
+        } else {
+          console.error("Received invalid data format:", data);
+          setCommunities([]);
+        }
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error("Failed to fetch communities:", err);
+        setCommunities([]);
+        setLoading(false);
+      });
+  }, []);
   return (
     <>
       <Helmet>
@@ -68,23 +93,38 @@ const Community = () => {
                 County Communities
               </h2>
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                {communities.map((community) => (
-                  <div
-                    key={community.county}
-                    className="glass-card rounded-2xl p-6 hover:border-primary/50 transition-all duration-300"
-                  >
-                    <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 rounded-xl bg-primary/20">
-                        <MapPin className="h-5 w-5 text-primary" />
-                      </div>
-                      <h3 className="font-heading font-bold text-foreground text-lg">{community.county}</h3>
-                    </div>
-                    <div className="space-y-2 text-sm">
-                      <p className="text-muted-foreground">Members: <span className="text-foreground font-medium">{community.members}</span></p>
-                      <p className="text-muted-foreground">Leader: <span className="text-foreground font-medium">{community.leader}</span></p>
-                    </div>
+                {loading ? (
+                  <div className="col-span-full text-center py-10">
+                    <p className="text-muted-foreground">Loading communities...</p>
                   </div>
-                ))}
+                ) : (
+                  communities.map((community) => (
+                    <div
+                      key={community.id}
+                      className="glass-card rounded-2xl p-6 hover:border-primary/50 transition-all duration-300"
+                    >
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="p-2 rounded-xl bg-primary/20">
+                          <MapPin className="h-5 w-5 text-primary" />
+                        </div>
+                        <h3 className="font-heading font-bold text-foreground text-lg">{community.county}</h3>
+                      </div>
+                      <div className="space-y-2 text-sm">
+                        <p className="text-muted-foreground">Members: <span className="text-foreground font-medium">{community.members_count}</span></p>
+                        <p className="text-muted-foreground">Leader: <span className="text-foreground font-medium">{community.leader_name}</span></p>
+                        {community.whatsapp_link && (
+                          <div className="pt-2">
+                            <Button asChild variant="outline" size="sm" className="w-full gap-2 text-green-600 hover:text-green-700 hover:bg-green-50 border-green-200">
+                              <a href={community.whatsapp_link} target="_blank" rel="noopener noreferrer">
+                                <MessageCircle className="h-4 w-4" /> Join Group
+                              </a>
+                            </Button>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  ))
+                )}
               </div>
               <div className="text-center mt-10">
                 <Button asChild variant="hero" size="lg">
